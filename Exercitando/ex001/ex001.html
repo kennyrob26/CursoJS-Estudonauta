@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinando</title>
+    <style>
+        body{
+            background-color: rgba(39, 34, 34, 0.278);
+        }
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: 1px 1px rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        p{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Somadora de dois números</h1>
+    <script>
+
+        //Parte lógica
+
+        var nome = window.prompt('Qual seu nome?')
+        window.alert('A seguir, digite dois números a serem somados:')
+        var n1 = Number(window.prompt('Digite o primeiro número a ser somado:'))
+        var n2 = Number(window.prompt('Digite o segundo número a ser somado: '))
+        var soma = n1 + n2
+
+        //Resultado
+
+        document.write(
+            `<p>
+                Olá,<strong> ${nome}</strong>! Seja muito bem vindo a nossa somadora!
+            </p>`)
+        document.write(
+            `<p>
+                O <strong>resultado da soma </strong>entre os números <strong>${n1} e ${n2}</strong> é <strong>${soma}</strong>
+            </p>`)
+        document.write(
+            `<p>
+                Se deseja realizar uma nova soma, por favor atualize a página!
+            </p>`)
+    </script>
+</body>
+</html>
