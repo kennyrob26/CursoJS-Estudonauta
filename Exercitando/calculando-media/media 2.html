@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de média</title>
+    <style>
+        body{
+            background-color: rgb(76, 76, 147);
+        }
+        h1{
+            margin-bottom: 0px;
+            font-size: 3em;
+            font-family: Arial, Helvetica, sans-serif;
+            color: orange;
+            text-align: center;
+            text-shadow: 2px 2px rgba(0, 0, 0, 0.437);
+
+        }
+
+        div{
+            margin: auto;
+            border: 1px solid rgb(241, 226, 198);
+            padding: 10px;
+            box-shadow: 3px 3px 5px 1px  rgba(0, 0, 0, 0.237);
+            max-width: 500px;
+        }
+
+        p{
+            color: white;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        #descricao{
+            font-size: 1em;
+            margin-top: 0px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de médias</h1>
+    <p id="descricao">Olá, seja bem vindo ao nosso calculador de médias!</p>
+    <div>
+        <p>As notas digitadas foram: </p>
+        <p>A média do aluno é: </p>
+        <p>O aluno está: </p>
+    </div>
+    <script>
+        var n1 = Number(window.prompt('Digite e a primeira nota:'))
+        var n2 = Number(window.prompt('Digite a terceira nota:'))
+        var n3 = Number(window.prompt('Digite a quarta nota'))
+        var n4 = Number(window.prompt('Digite a segunda nota: '))
+
+        media = (n1 + n2 + n3 + n4) / 4
+
+        var aprovacao = media >= 5 ? "Aprovado" : "Reprovado"
+
+        var notas = window.document.getElementsByTagName('p')[1]
+        notas.innerText = notas.innerHTML + `${n1}, ${n2}, ${n3} e ${n4}`
+
+        var m = window.document.getElementsByTagName('p')[2]
+        m.innerText = m.innerHTML + media
+
+        var aprovado = window.document.getElementsByTagName('p')[3]
+        aprovado.innerHTML = aprovado.innerHTML + `<strong>${aprovacao}</strong>`
+        aprovacao =='Aprovado' ?  aprovado.style.background = 'green': aprovado.style.background = 'red'
+
+
+
+
+
+    </script>
+</body>
+</html>
