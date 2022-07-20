@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Calculadora de notas UNIVESP</h1>
+
+        <section>
+            <h2>Atividades Avaliativas</h2>
+            <p>Digite a baixo as notas das semanas de 1 a 7</p>
+            <p>Semana 1:<input type="number" name="ns1" id="ns1"></p>
+            <p>Semana 2:<input type="number" name="ns2" id="ns2"></p>
+            <p>Semana 3:<input type="number" name="ns3" id="ns3"></p>
+            <p>Semana 4:<input type="number" name="ns4" id="ns4"></p>
+            <p>Semana 5:<input type="number" name="ns5" id="ns5"></p>
+            <p>Semana 6:<input type="number" name="ns6" id="ns6"></p>
+            <p>Semana 7:<input type="number" name="ns7" id="ns7"></p>
+            <input type="button" value="Calcular" onclick="calcularAtiv()">
+            <p id="restAtiv">resultado</p>
+        </section>
+
+        <section>
+            <h2>Prova</h2>
+            <p>Digite a nota de cada questão da prova</p>
+            <p>Questão 1: <input type="number" name="np1" id="np1"> </p>
+            <p>Questão 2: <input type="number" name="np2" id="np2"> </p>
+            <p>Questão 3: <input type="number" name="np3" id="np3"> </p>
+            <p>Questão 4: <input type="number" name="np4" id="np4"> </p>
+            <p>Questão 5: <input type="number" name="np5" id="np5"> </p>
+            <p>Questão 6: <input type="number" name="np6" id="np6"> </p>
+            <p>Questão 7: <input type="number" name="np7" id="np7"></p>
+            <p>Questão 8: <input type="number" name="np8" id="np8"></p>
+            <input type="button" value="calcular" onclick="calcularPro()">
+            <p id="restPro">Resultado</p>
+        </section>
+
+        <section>
+            <h2>Nota Final</h2>
+            <p>Digite a media das atividades avaliatiativas e a nota da prova</p>
+            <p>Atividades Avaliativas: <input type="number" name="nAtv" id="nAtv"></p>
+            <p>Prova: <input type="number" name="nPro" id="nPro"></p>
+            <p><input type="button" value="Calcular" onclick="notaFinal()"></p>
+            <p id="nFinal">Resultado</p>
+        </section>
+    </main>
+
+
+
+    <script>
+        //Atividades Avaliativa
+
+        var ns1 = window.document.getElementById('ns1')
+        var ns2 = window.document.getElementById('ns2')
+        var ns3 = window.document.getElementById('ns3')
+        var ns4 = window.document.getElementById('ns4')
+        var ns5 = window.document.getElementById('ns5')
+        var ns6 = window.document.getElementById('ns6')
+        var ns7 = window.document.getElementById('ns7')
+
+        function calcularAtiv(){
+            var n1 = 0.08 * (Number(ns1.value)) //peso de 8%   
+            var n2 = 0.12 * (Number(ns2.value)) //peso de 12%
+            var n3 = 0.17 * (Number(ns3.value)) //peso de 17%
+            var n4 = 0.17 * (Number(ns4.value)) //peso de 17%
+            var n5 = 0.17 * (Number(ns5.value)) //peso de 17%
+            var n6 = 0.17 * (Number(ns6.value)) //peso de 17%
+            var n7 = 0.12 * (Number(ns7.value)) //peso de 12%
+
+            var media = n1 + n2 + n3 + n4 +n5 + n6 + n7
+
+            res = window.document.getElementById('restAtiv')
+            res.innerHTML = `A média das Atividades avaliativas é: ${media}`
+        }
+
+        //Questões prova
+
+        var np1 = window.document.getElementById('np1')
+        var np2 = window.document.getElementById('np2')
+        var np3 = window.document.getElementById('np3')
+        var np4 = window.document.getElementById('np4')
+        var np5 = window.document.getElementById('np5')
+        var np6 = window.document.getElementById('np6')
+        var np7 = window.document.getElementById('np7')
+        var np8 = window.document.getElementById('np8')
+
+        function calcularPro(){
+            n1 = Number(np1.value)
+            n2 = Number(np2.value)
+            n3 = Number(np3.value)
+            n4 = Number(np4.value)
+            n5 = Number(np5.value)
+            n6 = Number(np6.value)
+            n7 = Number(np7.value)
+            n8 = Number(np8.value)
+            resultado = n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8
+
+            res = window.document.getElementById('restPro')
+            res.innerHTML = `A nota média da prova é ${resultado}`
+
+        //Nota final 
+
+        var nAtv = window.document.getElementById('nAtv')
+        var nPro = window.document.getElementById('nPro')
+        }
+
+        function notaFinal(){
+            n1 = 0.6 * (Number(nPro.value))
+            n2 = 0.4 * (Number(nAtv.value))
+            resultado = n1 + n2
+
+            res = window.document.getElementById('nFinal')
+            res.innerHTML = `A nota final é: ${resultado}`
+        }
+
+            
+    </script>
+</body>
+</html>
