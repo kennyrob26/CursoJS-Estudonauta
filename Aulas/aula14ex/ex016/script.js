@@ -11,9 +11,6 @@ function contar(){
     }else if(fim == 0){
         //verifica se o fim é diferente de 0
         window.alert('O fim deve ser maior que 0')
-    }else if(ini > fim){
-        //verifica se o fim é maior que o inicio
-        window.alert('O inicio não pode ser maior que o fim!')
     }else{
         if(pas == 0){
             //verifica se o passo é diferente de 0
@@ -22,11 +19,22 @@ function contar(){
         }
         //Contagem inserida pelo usuário:
         contagem.innerHTML = 'Contando: </br>'
-        
-        while(ini <= fim){
-            contagem.innerHTML += `${ini}👉 `
-            ini += pas
+
+        //contagem crescente
+        if(ini < fim){
+            while(ini <= fim){
+                contagem.innerHTML += `${ini}👉 `
+                ini += pas
+        }
+        //contagem regressiva
+        }else{
+            while(ini >= fim){
+                contagem.innerHTML += `${ini}👉 `
+                ini -= pas
+            }
         }
         contagem.innerHTML += `🏁`
+
     }
+
 }
