@@ -4,7 +4,7 @@ res = window.document.getElementById('res')
 
 function adicionar(){
 
-    var n1 = Number((window.document.getElementById('txtn')).value)
+    var n1 = window.document.getElementById('txtn')
     res.innerHTML = `` //Limpa os resultados quando adicionar um novo número
 
     //Verfica se o valor se encontra entre 1 e 100
@@ -14,16 +14,17 @@ function adicionar(){
         let select = window.document.getElementById('val') 
 
         //Verifica se o número já se encontra na lista
-        if(add.indexOf(n1) != -1){
+        if(add.indexOf(Number(n1.value)) != -1){
             alert('Número já adicionado, por favor digite outro número')
         }else{
-            add.push(n1)
+            add.push(Number(n1.value))
             var op = document.createElement('option')
-            op.text = `Valor ${n1} adicionado.`
+            op.text = `Valor ${n1.value} adicionado.`
             select.appendChild(op)
         }
-        
 
+        n1.value = ''
+        n1.focus()
     }
 
 }
@@ -37,22 +38,11 @@ function finalizar(){
         alert('Por favor, digite algum valor')
     } else {
 
-        res.innerHTML = `
-            <p>
-                Ao todo, temos ${add.length} números cadastrados 
-            </p>
-            <p>
-                O maior valor informado foi ${add[t-1]}.
-            </p>
-            <p>
-                O menor valor informado foi ${add[0]}.
-            </p>
-            <p>
-                Somando todos os valores, temos ${soma()}.
-            </p>
-            <p>
-                A média dos valores digitados é ${media()}.
-            </p>`
+        res.innerHTML = `<p>Ao todo, temos ${add.length} números cadastrados </p>`
+        res.innerHTML +=`<p> O maior valor informado foi ${add[t-1]}</p>`
+        res.innerHTML +=`<p> O menor valor informado foi ${add[0]}.</p>`
+        res.innerHTML += `<p>Somando todos os valores, temos ${soma()}.</p>`
+        res.innerHTML += `<p>A média dos valores digitados é ${media()}.</p>`
 
 
     }
